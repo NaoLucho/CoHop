@@ -21,7 +21,7 @@ DirectoryIndex app.php
     RewriteEngine On
     #Rediriger le http vers https
     RewriteCond %{SERVER_PORT} 80
-    RewriteRule ^(.*)$ https://www.accessinfos.fr/$1 [R,L]
+    RewriteRule ^(.*)$ https://www.sitebuilder.fr/$1 [R,L]
     
     # Determine the RewriteBase automatically and set it as environment variable.
     # If you are using Apache aliases to do mass virtual hosting or installed the

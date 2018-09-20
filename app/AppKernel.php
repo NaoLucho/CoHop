@@ -66,6 +66,9 @@ class AppKernel extends Kernel
 
             //Gestion des images
             new Vich\UploaderBundle\VichUploaderBundle(),
+            
+            //Captcha
+            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

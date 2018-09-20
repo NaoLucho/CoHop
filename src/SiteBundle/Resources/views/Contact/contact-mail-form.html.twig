@@ -1,0 +1,24 @@
+<div class="w-100">
+{{form_start(form)}}
+    <div class="row">
+      <div class="form-group col-md-6">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}{{ form_errors(form.name)}}
+      </div>
+      <div class="form-group col-md-6">
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email) }}{{ form_errors(form.email)}}
+        </div>
+    </div>
+  {{ form_rest(form) }}
+  {{ form_end(form)}}
+
+  {# if message sent error #}
+  {# <div class="alert alert-success alert-dismissible fixed fixed-b-r hidden" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    Afficher le message de succes ici !
+  </div> #}
+
+</div>

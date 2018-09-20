@@ -218,8 +218,18 @@ knp_menu:
 
 ivory_ck_editor:
     default_config: default
+    # configs:
+    #     my_config:
+    #         stylesSet: "my_styles"
+    #         contentsCss: "bundles/admin/css/main.css"
+    # styles:
+    #     my_styles:
+    #         - { name: "Blue Title", element: "h2", styles: { color: "Blue" }}
+    #         - { name: "CSS Style", element: "span", attributes: { class: "my_style" }}
+    #         - { name: "Widget Style", type: widget, widget: "my_widget", attributes: { class: "my_widget_style" }}
     configs:
         default:
+            contentsCss: "bundles/admin/css/main.css" #ajoute CSS dans le CKEDITOR
             filebrowserBrowseRoute: admin_sonata_media_media_browser
             filebrowserImageBrowseRoute: admin_sonata_media_media_browser
             # Display images by default when clicking the image dialog browse button
