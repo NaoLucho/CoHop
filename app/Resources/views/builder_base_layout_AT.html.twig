@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Site Name{% endblock %}</title>
+    <meta name="description" content={% block seoDescription %}
+            "site description"
+        {% endblock %}/>
+    <meta name="keywords" content={% block seoKeywords %}
+            "site, keywords "
+        {% endblock %} />
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" /> 
+    
+    {% block stylesheets %} 
+    {# On charge le CSS de bootstrap depuis le site directement #}
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Access' Infos" />
+    <meta property="og:description" content={{ block('seoDescription') }} />
+    <meta property="og:url" content="http://www.site.fr/" />
+    <meta property="og:site_name" content="Access' Infos" />
+    <meta property="og:locale" content="fr_FR" />
+    <link rel="alternate" href="https://www.site.fr/" hreflang="fr-fr" />
+    <link rel="alternate" href="https://www.site.fr/" hreflang="x-default" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+
+    {# select2_bootstrap #}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('assets/css/select2/select2_bootstrap.css') }}" /> 
+    {# css SonataUserBundle #} 
+    {% stylesheets '@ApplicationSonataUserBundle/Resources/public/css/main.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" /> {% endstylesheets %} 
+    {# css buidler #} {% stylesheets '@AdminBundle/Resources/public/css/main.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" /> {% endstylesheets %}
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous"> {% endblock %} 
+    
+    <!-- Global site tag (gtag.js) - Google Analytics PROD ONLY-->
+    {# <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122394378-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-122394378-1');
+    </script> #}
+    
+</head>
+
+<body class="body-back row">
+    <div class="container col-sm-8">
+        <div class="page col-sm-11">
+            {# BLOCK CONNEXION #} {#
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-3 ml-auto ">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a href="{{ path('fos_user_profile_show') }}">Profil {{ app.user.username }}</a>
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                    {% else %}
+                    <a href="{{ path('site_loginpage') }}">Se Connecter</a>
+                    {% endif %}
+                </div>
+            </div> #}
+
+            <div class="row">
+                {% block header %}
+                <div id="header" class="jumbotron">
+                    Ici est un header
+                </div>
+                {% endblock %}
+            </div>
+
+            {% block menu %}
+            <h3>Pages:</h3>
+            <ul class="nav nav-pills nav-stacked">
+                <li>
+                    <a href="{{ path('homepage') }}">Accueil</a>
+                </li>
+            </ul>
+            {% endblock %} 
+            
+            {# probleme avec les render(controller()), le template tiens compte du flashbag seulement après refresh Il
+            faut donc l'ajouter à chaque fois dans le template appellé par le controlleur (cf. article) #} {# {% if app.request.hasPreviousSession
+            %} {% for type, messages in app.session.flashBag.all %} {% for message in messages %}
+            <div class="mt-4 alert alert-{{ type }}">
+                {{ message|trans({}, 'FOSUserBundle') }}
+            </div>
+            {% endfor %} {% endfor %} {% endif %} #} 
+            
+            {# Apparait seulement si fos_user est appelé #} 
+            {% block fos_user_content %}{% endblock %}
+            
+            <div class="row m-0">
+                <div class="body col-md-9">
+                    <div class="row justify-content-md-center m-0">
+                    {% block body %}{% endblock %}
+                    </div>
+                    
+                </div>
+                <div class="lateral col-md-3">
+                    {% block lateral %} {% include "lateral.html.twig"%} {% endblock %}
+                </div>
+            </div>
+
+            
+        </div>
+        {% block footer %}
+            <div class="Footer">
+                <p>Site créé par <a href="https://www.funga.fr" >Funga</a></p>
+            </div>
+        {% endblock %}
+    </div>
+</body>
+
+    {% block javascripts %}
+    {# jquery #}
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    {# jquery UI #}
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    {# bootstrap #} {#
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> #} {#
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script> #}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    {# select2 #}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    {# parralax page #}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+    {# NEED INIT skroll
+    <script>  
+        $(function(){
+            skrollr.init({
+                forceHeight: false
+            });
+        });
+    </script> 
+    #}
+    {% javascripts '@BuilderPageBundle/Resources/public/js/carousel.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {#
+    <script src="{{ asset( template_repo ~ '/assets/js/owl.carousel.js') }}"></script>
+    <script src="{{ asset( template_repo ~ '/assets/js/open.min.js') }}"></script> #} {#
+    <script src="{{ asset('assets/js/chosen_v1.8.2/chosen.jquery.js') }}"></script> #}
+
+    {# Utilisation d'openlayers (map) #}
+    {# <script src="https://openlayers.org/en/v4.6.4/build/ol.js" type="text/javascript"></script> #}
+    {% endblock %}
+
+</html>
