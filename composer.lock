@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "703ea7772567f23afc3cacbf43693b71",
+    "content-hash": "b53fbf9897d0b10740c52769ab4b01c8",
     "packages": [
         {
             "name": "beberlei/DoctrineExtensions",
@@ -103,6 +103,81 @@
                 "transliterator"
             ],
             "time": "2017-04-04T11:38:05+00:00"
+        },
+        {
+            "name": "builder/pagebundle",
+            "version": "dev-master",
+            "target-dir": "Builder/PageBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NaoLucho/PageBundle.git",
+                "reference": "b6d439a7851d948838cf7d9809cb648b9580116c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NaoLucho/PageBundle/zipball/b6d439a7851d948838cf7d9809cb648b9580116c",
+                "reference": "b6d439a7851d948838cf7d9809cb648b9580116c",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "^1.4",
+                "doctrine/doctrine-bundle": "^1.6",
+                "doctrine/orm": "^2.5",
+                "egeloen/ckeditor-bundle": "^6.0",
+                "friendsofsymfony/user-bundle": "2.0.2",
+                "incenteev/composer-parameter-handler": "^2.0",
+                "knplabs/knp-menu-bundle": "^2.0",
+                "nelmio/api-doc-bundle": "^2.13",
+                "php": "^7.1",
+                "sensio/distribution-bundle": "^5.0.19",
+                "sensio/framework-extra-bundle": "^3.0.2",
+                "sonata-project/admin-bundle": "^3.23",
+                "sonata-project/block-bundle": "^3.4",
+                "sonata-project/doctrine-orm-admin-bundle": "^3.1",
+                "sonata-project/easy-extends-bundle": "^2.2",
+                "sonata-project/media-bundle": "^3.8",
+                "sonata-project/user-bundle": "dev-master",
+                "symfony/symfony": "v3.4.4",
+                "twig/extensions": "^1.5",
+                "twig/twig": "^1.0||^2.0",
+                "vich/uploader-bundle": "^1.6"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "ckeditor-tag": "4.7.3"
+            },
+            "autoload": {
+                "psr-0": {
+                    "Builder\\PageBundle": ""
+                }
+            },
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Louis Watrin",
+                    "email": "louis.watrin@gmail.com",
+                    "homepage": "https://www.funga.fr"
+                },
+                {
+                    "name": "Aaron Hartnell",
+                    "homepage": "https://www.funga.fr"
+                }
+            ],
+            "description": "Symfony PageBundle, Manage page and Menus with database",
+            "keywords": [
+                "Menu",
+                "Page",
+                "ckeditor",
+                "fosuser",
+                "sonata"
+            ],
+            "support": {
+                "source": "https://github.com/NaoLucho/PageBundle/tree/master",
+                "issues": "https://github.com/NaoLucho/PageBundle/issues"
+            },
+            "time": "2018-09-24T10:53:58+00:00"
         },
         {
             "name": "cocur/slugify",
@@ -4742,16 +4817,16 @@
         },
         {
             "name": "sonata-project/media-bundle",
-            "version": "3.15.0",
+            "version": "3.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "3e1e6656ba088f9a315073efb1c40067efbfec59"
+                "reference": "14ec9933438fef1cdda76629a222ed7643af1af1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/3e1e6656ba088f9a315073efb1c40067efbfec59",
-                "reference": "3e1e6656ba088f9a315073efb1c40067efbfec59",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/14ec9933438fef1cdda76629a222ed7643af1af1",
+                "reference": "14ec9933438fef1cdda76629a222ed7643af1af1",
                 "shasum": ""
             },
             "require": {
@@ -4862,7 +4937,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2018-07-06T21:03:23+00:00"
+            "time": "2018-09-23T20:36:58+00:00"
         },
         {
             "name": "sonata-project/user-bundle",
@@ -6569,7 +6644,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "sonata-project/user-bundle": 20,
-        "tilleuls/ckeditor-sonata-media-bundle": 20
+        "tilleuls/ckeditor-sonata-media-bundle": 20,
+        "builder/pagebundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

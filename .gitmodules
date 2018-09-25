@@ -1,9 +1,3 @@
-[submodule "Builder/PageBundle"]
-	path = Builder/PageBundle
-	url = https://github.com/NaoLucho/pagebuilder.git
-[submodule "src/Builder/PageBundle"]
-	path = src/Builder/PageBundle
-	url = https://github.com/NaoLucho/pagebuilder.git
 [submodule "src/Builder/FormBundle"]
 	path = src/Builder/FormBundle
 	url = https://github.com/NaoLucho/FormBundle.git

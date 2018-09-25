@@ -22,7 +22,46 @@ builder_list:
     resource: "@BuilderListBundle/Resources/config/routing.yml"
     prefix:   /
 
-builder_page:
-    resource: "@BuilderPageBundle/Resources/config/routing.yml"
-    prefix:   /
+# builder_page:
+#     resource: "@BuilderPageBundle/Resources/config/routing.yml"
+#     prefix:   /
 
+homepage:
+    path: /
+    defaults: 
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /accueil
+        permanent: true
+
+
+site_loginpage:
+    path:     /login/page
+    defaults: { _controller: BuilderPageBundle:Builder\BuildPage:buildPage, slug: "login" }
+
+site_login:
+    path:     /login
+    # defaults: { _controller: BuilderPageBundle:Builder\BuildPage:buildPage, slug: "login" }
+    # RENVOI vers la route de login de fosuserbundle
+
+# site_popup:
+#     path:     /popup/{slug}
+#     defaults: { _controller: BuilderPageBundle:Builder\BuildContent:buildPageContent }
+
+
+# FOR DEBUG PAGE:
+# builder_buildpagedetails:
+#     path:      /details/{slug}
+#     defaults:
+#         _controller: BuilderPageBundle:Builder\BuildPage:buildPageDetails
+
+
+builder_buildpageid:
+    path:      /{slug}/{id}
+    defaults:
+        _controller: BuilderPageBundle:Builder\BuildPage:buildPage
+
+
+#MAIN ROUTE ALL MATCH:
+builder_buildpage:
+    path:      /{slug}/
+    defaults:  { _controller: BuilderPageBundle:Builder\BuildPage:buildPage, slug: "accueil" }
