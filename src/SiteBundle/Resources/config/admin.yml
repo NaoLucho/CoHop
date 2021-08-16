@@ -21,3 +21,10 @@ services:
     tags:
       - { name: sonata.admin, manager_type: orm, group: "Métier", label: "Liens" }
     public: true
+
+  app.admin.product:
+    class: SiteBundle\Admin\ProductAdmin
+    arguments: [~, SiteBundle\Entity\Product, ~]
+    tags:
+      - { name: sonata.admin, manager_type: orm, group: "Métier", label: "Bières" }
+    public: true

@@ -1,12 +1,17 @@
 
+html,body{
+    font-family: "Philosopher";
+    scroll-behavior: smooth;
+}
+
 .body-back{
-    background-color: #a7c5c1;
-    
+    background-color: #000;
+    color:#fff;
 }
 
 .body{
     font-size: 18px;
-    color:#003300;
+    color:#fff;
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 20px;
@@ -30,20 +35,38 @@
 }
 
 a{
-    color: #2aa67d;
+    color: #aaa;
 }
 .page{
-    padding: 10px 50px 0 50px;
+    /* padding: 0px 50px 0 50px; */
+    background-color: #222;
+    border: 1px solid white;
+    /* margin-bottom: 20px; */
+    border-radius: 25px;
 }
+
+.main-menu{
+    max-width: 1270px;
+    margin: 0px auto;
+}
+
 .container{
     max-width: 1270px;
-    margin:           20px auto;
-    padding:      20px 0px 0px 0px;
-    background-color: white;
-    border:           1px  solid #86b0aa;
+    margin:    0px auto;
+    padding:   0px;
+    /* background-color: white; */
+    /* border:           1px  solid #86b0aa; */
 }
+
+.main_banner{
+    width: 100%;
+    margin-top: -60px;
+}
+
 .navbar{
-    background-color: #e0f0ee;
+    background-color: #000;
+    border: 1px solid #fff;
+    border-top: 0px;
 }
 .navbar-nav{
     margin-left: auto;
@@ -52,9 +75,14 @@ a{
 .navbar-light .navbar-nav .active > .nav-link{
     background-color: white;
     border-radius:    5px;
-    color:            #2aa67d;
+    color:            #333 !important;
     font-weight:      bolder;
 }
+
+a.nav-link{
+    color:            #aaa !important;
+}
+
 .navbar li:hover{
     background-color: rgba(255,255,255,.7);
     border-radius: 5px;
@@ -64,21 +92,51 @@ a{
     margin-right: 5px;
     min-width:    100px;
     text-align:   center;
-    color:        #666;
+    color:        #fff !important;
+    font-weight: 600;
 }
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar a:hover{
-    color: #2aa67d;
+    color: #fff !important;
 }
-.Footer{
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar a.active:hover{
+    color: #000 !important;
+}
+
+.navbar .navbar-toggler-icon{
+    color: #fff !important;
+}
+
+.navbar .navbar-toggler-icon:hover{
+    color: #ddd !important;
+}
+
+.menu-icon{
+    height: 28px;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(194deg) brightness(108%) contrast(101%);
+}
+
+.menu-icon:hover{
+    filter: invert(80%) sepia(0%) saturate(0%) hue-rotate(194deg) brightness(88%) contrast(81%);
+}
+/* .navbar .navbar-brand:hover{
+    
+} */
+
+
+.footer{
     background-color: #222;
     padding:          60px 0;
     width:            100%;
     display:          block;
     text-align:       center;
+    border: 1px solid #FFF;
+    border-bottom: 0px;
 
 }
-.Footer a{
+.footer a{
     color:rgba(255,255,255,.7);
     font-size: 15px;
     margin-left: auto;
@@ -104,4 +162,9 @@ a{
 
 .search-container{
     margin: 0px 20px 40px 20px;
+}
+
+
+.facebook-icon{
+    height: 25px;
 }

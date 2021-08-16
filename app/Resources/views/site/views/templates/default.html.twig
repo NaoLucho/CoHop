@@ -50,7 +50,7 @@
 
   <main role="main">
     {# Hero page type default = Bloc photo + titre - A titre d'exemple pour le moment #}
-    {% if page.slug is defined and page.slug == 'home' %}
+    {% if page.slug is defined and page.slug == 'accueil' %}
       {% include  template_repo ~ "/views/parts/homeCarousel.html.twig" %}  {#//LOUIS Desactivation: pas de template fourni #}
     {% elseif pageType is defined and pageType == 'structure-observatoire' %}
       {% include template_repo ~ "/views/parts/structure-observatoire.html.twig" %}

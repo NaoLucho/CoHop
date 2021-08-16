@@ -15,5 +15,5 @@ parameters:
     project_name: Sites/sitebuilder
     upload_prefix: /%project_name%/web/uploads
     image_prefix: '%upload_prefix%/img'
-    secret: cecilesecret
+    secret: secret
     template_repo: site

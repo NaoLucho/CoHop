@@ -216,6 +216,12 @@ knp_menu:
     # the renderer to use, list is also available by default
     default_renderer: twig
 
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~
+
 ivory_ck_editor:
     default_config: default
     # configs:
@@ -300,6 +306,12 @@ vich_uploader:
         article_photo:
             uri_prefix:         '%image_prefix%/article_photo/'
             upload_destination: '%kernel.root_dir%/../web/uploads/img/article_photo'
+            namer:              vich_uploader.namer_origname
+            delete_on_update: true
+            delete_on_remove: true
+        product_image:
+            uri_prefix:         '%image_prefix%/product_photo/'
+            upload_destination: '%kernel.root_dir%/../web/uploads/img/product_photo'
             namer:              vich_uploader.namer_origname
             delete_on_update: true
             delete_on_remove: true

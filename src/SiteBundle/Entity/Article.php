@@ -507,7 +507,7 @@ class Article
      *
      * @return Page Content
      */
-    public function setComments($comments)
+    public function setComments(Array $comments)
     {
         if (count($comments) > 0) {
             foreach ($comments as $i) {
@@ -525,7 +525,7 @@ class Article
      *
      * @return Page
      */
-    public function addComment($comments)
+    public function addComment(Array $comments)
     {
         $comments->setArticle($this);
         $this->comments[] = $comments;

@@ -3,7 +3,7 @@
 
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122394378-1"></script>
+    {# <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122394378-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -13,28 +13,28 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-122394378-1');
-    </script>
+    </script> #}
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Access'Infos{% endblock %}</title>
+    <title>{% block title %}CO-HOP{% endblock %}</title>
     <meta name="description" content={% block seoDescription %}
             "FALC Ados, adultes - des textes accessibles et faciles à lire."
         {% endblock %}/>
     <meta name="keywords" content={% block seoKeywords %}
-            "accessibilité, article, falc, fle, français facile, lecture facile, dys, dyslexie, handicap, trouble cognitif, Cécile Péguin, roman adapté"
+            "Brasserie Co-Hop, Bière, Ariège, Bio, Biologique, Nature et Progrès"
         {% endblock %} />
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" /> {% block stylesheets %} {# On charge le CSS de bootstrap depuis le site directement #}
     
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Access' Infos">
+    <meta property="og:title" content="CO-HOP">
     <meta property="og:description" content={{ block('seoDescription') }}>
-    <meta property="og:url" content="http://www.accessinfos.fr/">
-    <meta property="og:site_name" content="Access' Infos">
+    <meta property="og:url" content="http://www.brasserieco-hop.fr/">
+    <meta property="og:site_name" content="CO-HOP">
     <meta property="og:locale" content="fr_FR">
-    <link rel="alternate" href="https://www.accessinfos.fr/" hreflang="fr-fr" />
-    <link rel="alternate" href="https://www.accessinfos.fr/" hreflang="x-default" />
+    <link rel="alternate" href="https://www.brasserieco-hop.fr/" hreflang="fr-fr" />
+    <link rel="alternate" href="https://www.brasserieco-hop.fr/" hreflang="x-default" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <!-- Optional theme -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
@@ -45,7 +45,7 @@
     {# css SonataUserBundle #} 
     {% stylesheets '@ApplicationSonataUserBundle/Resources/public/css/main.css' %}
     <link rel="stylesheet" href="{{ asset_url }}" /> {% endstylesheets %} 
-    {# css buidler #} {% stylesheets '@AdminBundle/Resources/public/css/main.css' %}
+    {# css buidler #} {% stylesheets '@SiteBundle/Resources/public/css/main.css' %}
     <link rel="stylesheet" href="{{ asset_url }}" /> {% endstylesheets %}
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
@@ -75,8 +75,23 @@
 </head>
 
 <body class="body-back">
-    <div class="container">
-        <div class="page">
+    {% block menu %}
+        <h3>Pages:</h3>
+        <ul class="nav nav-pills nav-stacked">
+            <li>
+                <a href="{{ path('homepage') }}">Accueil</a>
+            </li>
+        </ul>
+    {% endblock %}
+    {% block header %}
+        <div id="header" class="jumbotron">
+            Ici est un header
+        </div>
+    {% endblock %}
+    
+
+    <div class="container {{ page.name == 'ACCUEIL'?'mt-5':'page-float' }}">
+        <div class="page mb-5 p-5 {{ page.name == 'ACCUEIL'?'':'border' }}">
             {# BLOCK CONNEXION #} {#
             <div class="row">
                 <div class="col"></div>
@@ -92,22 +107,7 @@
                 </div>
             </div> #}
 
-            <div class="row">
-                {% block header %}
-                <div id="header" class="jumbotron">
-                    Ici est un header
-                </div>
-                {% endblock %}
-            </div>
-
-            {% block menu %}
-            <h3>Pages:</h3>
-            <ul class="nav nav-pills nav-stacked">
-                <li>
-                    <a href="{{ path('homepage') }}">Accueil</a>
-                </li>
-            </ul>
-            {% endblock %} {# probleme avec les render(controller()), le template tiens compte du flashbag seulement après refresh Il
+             {# probleme avec les render(controller()), le template tiens compte du flashbag seulement après refresh Il
             faut donc l'ajouter à chaque fois dans le template appellé par le controlleur (cf. article) #} {# {% if app.request.hasPreviousSession
             %} {% for type, messages in app.session.flashBag.all %} {% for message in messages %}
             <div class="mt-4 alert alert-{{ type }}">
@@ -115,14 +115,16 @@
             </div>
             {% endfor %} {% endfor %} {% endif %} #} {# Apparait seulement si fos_user est appelé #} {% block fos_user_content %}{% endblock
             fos_user_content %}
-            <div class="row">
+
+            {% block body %}{% endblock %}
+            {# <div class="row">
                 <div class="body col-md-8">
-                    {% block body %}{% endblock %}
+                    
                 </div>
                 <div class="lateral col-md-4">
                     {% block lateral %} {% include "lateral.html.twig"%} {% endblock %}
                 </div>
-            </div>
+            </div> #}
         </div>
         {% block footer %}
         <footer>
